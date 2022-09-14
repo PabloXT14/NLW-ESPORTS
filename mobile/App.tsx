@@ -5,7 +5,7 @@ export default function App() {
   return (
     <View style={styles.container}>
       <Text>Hello world</Text>
-      <Button text='Click me'/>
+      <Button text='Click' />
       <StatusBar style="auto" />
     </View>
   );
@@ -31,12 +31,13 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   button: {
-    backgroundColor: 'tomato',
+    backgroundColor: '#8257e6',
     borderRadius: 5,
     paddingHorizontal: 16,
     paddingVertical: 8,
   },
   button__content: {
     color: '#FFFFFF',
+    textTransform: 'uppercase',
   }
 });

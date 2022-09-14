@@ -1,19 +1,17 @@
+import './styles/main.css';
+
+import logoImg from './assets/logo-nlw-esports.svg'
+
 export function App() {
   return (
-    <>
-      <button style={{
-        borderRadius: '5px',
-        border: 'none',
-        color: '#FFFFFF',
-        padding: '0.5rem 1rem',
-        background: 'tomato',
-        cursor: "pointer",
-        boxShadow: '0px 2px 8px rgba(0, 0, 0, 0.2)',
-        fontFamily: "'Poppins', sans-serif",
-        fontSize: "1rem",
-      }}>
-        Click me
-      </button>
-    </>
+    <div className="max-w-[1344px] mx-auto my-20 flex flex-col items-center">
+      <img src={logoImg} alt="" />
+
+      <h1 className="text-6xl text-white font-black mt-20">
+        Seu{' '}
+        <span className="bg-nlw-gradient bg-clip-text text-transparent">duo</span>{' '}
+        está aqui
+      </h1>
+    </div>
   )
 }
