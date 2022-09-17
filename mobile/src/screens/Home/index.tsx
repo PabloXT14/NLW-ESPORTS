@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { View, Image, FlatList } from 'react-native';
+import { View, Image, FlatList, Text, TouchableOpacity } from 'react-native';
 import logoImg from '../../assets/logo-nlw-esports.png'
 import { GameCard, GameCardProps } from '../../components/GameCard';
 import { Heading } from '../../components/Heading';
@@ -8,7 +8,7 @@ import { GAMES } from '../../utils/games';
 import { styles } from './styles';
 
 const IP_WSL = '172.28.87.163'
-// const IP_WSL = '10.0.2.2'
+// const IP_WSL = ' 172.28.80.1'
 
 
 export function Home() {
@@ -48,6 +48,14 @@ export function Home() {
         showsHorizontalScrollIndicator={false}
         contentContainerStyle={styles.contentList}
       />
+
+      {/* <TouchableOpacity style={{
+        borderRadius: 6,
+        padding: 16,
+        backgroundColor: 'tomato',
+      }}>
+        <Text>Click me</Text>
+      </TouchableOpacity> */}
     </View>
   );
 }
