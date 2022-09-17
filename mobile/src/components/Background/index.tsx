@@ -10,14 +10,15 @@ interface BackgroundProps {
 
 export function Background({ children }: BackgroundProps) {
   return (
-    <ScrollView>
+    
       <ImageBackground
         source={backgroundImg}
         defaultSource={backgroundImg}
         style={styles.container}
       >
-        {children}
+        <ScrollView>
+          {children}
+        </ScrollView>
       </ImageBackground>
-    </ScrollView>
   );
 }

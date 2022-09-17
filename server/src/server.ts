@@ -72,7 +72,8 @@ app.get("/games/:id/ads", async (request, response) => {
       createdAt: 'desc'
     }
   })
-  return response.status(200).json(ads.map(ad => {
+  
+  return response.status(200).json(ads.map((ad: any) => {
     return {
       ...ad,
       weekDays: ad.weekDays.split(','),// tacando weekDays no formato de array

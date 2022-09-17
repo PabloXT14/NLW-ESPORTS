@@ -7,8 +7,7 @@ import { GAMES } from '../../utils/games';
 
 import { styles } from './styles';
 
-const IP_WSL = '172.28.87.163'
-// const IP_WSL = '10.0.2.2'
+const IP_MACHINE = '192.168.2.122'
 
 
 export function Home() {
@@ -16,7 +15,7 @@ export function Home() {
 
 
   useEffect(() => {
-    fetch(`http://${IP_WSL}:3333/games`)
+    fetch(`http://${IP_MACHINE}:3333/games`)
       .then(response => response.json())
       .then(data => {
         setGames(data)
