@@ -1,9 +1,12 @@
-import React, { useEffect, useState } from 'react';
-import { View, Image, FlatList, Text, TouchableOpacity } from 'react-native';
+import { useEffect, useState } from 'react';
+import { Image, FlatList } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
+
 import logoImg from '../../assets/logo-nlw-esports.png'
+
 import { GameCard, GameCardProps } from '../../components/GameCard';
 import { Heading } from '../../components/Heading';
-import { GAMES } from '../../utils/games';
+// import { GAMES } from '../../utils/games';
 
 import { styles } from './styles';
 
@@ -13,6 +16,7 @@ const IP_MACHINE = '192.168.2.122'
 export function Home() {
   const [games, setGames] = useState<GameCardProps[]>([]);
 
+  console.log('Está na Home')
 
   useEffect(() => {
     fetch(`http://${IP_MACHINE}:3333/games`)
@@ -24,7 +28,7 @@ export function Home() {
   }, [])
 
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       <Image 
         source={logoImg}
         style={styles.logo}
@@ -47,14 +51,6 @@ export function Home() {
         showsHorizontalScrollIndicator={false}
         contentContainerStyle={styles.contentList}
       />
-
-      {/* <TouchableOpacity style={{
-        borderRadius: 6,
-        padding: 16,
-        backgroundColor: 'tomato',
-      }}>
-        <Text>Click me</Text>
-      </TouchableOpacity> */}
-    </View>
+    </SafeAreaView>
   );
 }

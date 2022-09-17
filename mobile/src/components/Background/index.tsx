@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import { ReactNode } from 'react';
 import { ImageBackground, ScrollView } from 'react-native';
 import backgroundImg from '../../assets/background-galaxy.png'
 
