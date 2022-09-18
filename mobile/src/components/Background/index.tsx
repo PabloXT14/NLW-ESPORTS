@@ -1,8 +1,8 @@
-import { ReactNode } from 'react';
+import React, { ReactNode } from 'react';
 import { ImageBackground, ScrollView } from 'react-native';
-import backgroundImg from '../../assets/background-galaxy.png'
-
 import { styles } from './styles';
+
+import backgroundImg from '../../assets/background-galaxy.png'
 
 interface BackgroundProps {
   children: ReactNode;
@@ -10,15 +10,12 @@ interface BackgroundProps {
 
 export function Background({ children }: BackgroundProps) {
   return (
-    
-      <ImageBackground
-        source={backgroundImg}
-        defaultSource={backgroundImg}
-        style={styles.container}
-      >
-        <ScrollView>
-          {children}
-        </ScrollView>
-      </ImageBackground>
+    <ImageBackground
+      source={backgroundImg}
+      defaultSource={backgroundImg}
+      style={styles.container}
+    >
+      {children}
+    </ImageBackground>
   );
 }

@@ -1,11 +1,12 @@
-import { SafeAreaView } from 'react-native-safe-area-context';
+import React from 'react';
+import { Text, View } from 'react-native';
 
 import { styles } from './styles';
 
 export function Game() {
   return (
-    <SafeAreaView style={styles.container}>
-      
-    </SafeAreaView>
+    <View style={styles.container}>
+      <Text>Game Page</Text>
+    </View>
   );
 }
