@@ -1,4 +1,4 @@
-import { StatusBar } from 'react-native';
+import { ScrollView, StatusBar } from 'react-native';
 import { Routes } from './src/routes';
 
 import {
@@ -20,13 +20,13 @@ export default function App() {
   })
 
   return (
-    <Background>
-      <StatusBar
-        barStyle="light-content"
-        backgroundColor="transparent"
-        translucent
-      />
-      {fontsLoaded ? <Routes /> : <Loading /> }
-    </Background>
+      <Background>
+        <StatusBar
+          barStyle="light-content"
+          backgroundColor="transparent"
+          translucent
+        />
+          {fontsLoaded ? <Routes /> : <Loading /> }
+      </Background>
   );
 }
