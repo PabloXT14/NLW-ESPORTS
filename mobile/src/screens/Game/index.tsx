@@ -13,7 +13,8 @@ import { DuoCard, DuoCardProps } from '../../components/DuoCard';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 
-const IP_MACHINE = '192.168.2.122'
+const IP_MACHINE = '192.168.2.122' // on WSL (with ports changed)
+// const IP_MACHINE = '172.30.32.1/'// on Windows (with ports changed)
 
 export function Game() {
   const [duos, setDuos] = useState<DuoCardProps[]>([])

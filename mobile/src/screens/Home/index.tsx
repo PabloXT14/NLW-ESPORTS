@@ -9,7 +9,8 @@ import { GameCard, GameCardProps } from '../../components/GameCard';
 import { useNavigation } from '@react-navigation/native';
 import axios from 'axios'
 
-const IP_MACHINE = '192.168.2.122'
+const IP_MACHINE = '192.168.2.122' // on WSL (with ports changed)
+// const IP_MACHINE = '172.30.32.1/'// on Windows (with ports changed)
 
 export function Home() {
   const [games, setGames] = useState<GameCardProps[]>([])
