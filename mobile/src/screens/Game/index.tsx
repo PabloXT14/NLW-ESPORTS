@@ -1,23 +1,26 @@
+import { useEffect, useState } from 'react';
 import { FlatList, Image, ScrollView, Text, TouchableOpacity, View } from 'react-native';
 import { useRoute, useNavigation } from '@react-navigation/native'; 
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { Background } from '../../components/Background';
 import { GameParams } from '../../@types/navigation';
 import { Entypo } from '@expo/vector-icons'
 import logoImg from '../../assets/logo-nlw-esports.png'
 
-import { styles } from './styles';
-import { THEME } from '../../themes';
+import { Background } from '../../components/Background';
 import { Heading } from '../../components/Heading';
 import { DuoCard, DuoCardProps } from '../../components/DuoCard';
-import { useEffect, useState } from 'react';
+import { DuoMath } from '../../components/DuoMath';
 import axios from 'axios';
+
+import { styles } from './styles';
+import { THEME } from '../../themes';
 
 const IP_MACHINE = '192.168.2.122' // on WSL (with ports changed)
 // const IP_MACHINE = '172.30.32.1/'// on Windows (with ports changed)
 
 export function Game() {
   const [duos, setDuos] = useState<DuoCardProps[]>([])
+  const [discordDuoSelected, setDiscordDuoSelected] = useState('');
 
   // PEGANDO PARÂMETROS DA ROTA
   const route = useRoute()
@@ -75,7 +78,7 @@ export function Game() {
             renderItem={({ item }) => (
               <DuoCard
                 data={item}
-                onConnect={() => {}}
+                onConnect={() => { setDiscordDuoSelected(item.name) }}
               />
             )}
             style={styles.containerList}
@@ -87,6 +90,12 @@ export function Game() {
                   Não há anúncios publicados ainda.
                 </Text>
             )}
+          />
+
+          <DuoMath
+            visible={discordDuoSelected.length > 0}
+            discord={discordDuoSelected}
+            onClose={() => setDiscordDuoSelected('')}
           />
 
         </SafeAreaView>
