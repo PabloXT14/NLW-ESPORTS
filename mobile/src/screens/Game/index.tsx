@@ -9,7 +9,7 @@ import logoImg from '../../assets/logo-nlw-esports.png'
 import { Background } from '../../components/Background';
 import { Heading } from '../../components/Heading';
 import { DuoCard, DuoCardProps } from '../../components/DuoCard';
-import { DuoMath } from '../../components/DuoMath';
+import { DuoMatch } from '../../components/DuoMatch'
 import axios from 'axios';
 
 import { styles } from './styles';
@@ -32,10 +32,17 @@ export function Game() {
     navigation.goBack()
   }
 
+  async function getDiscordUser(adsId: string) {
+    axios.get(`http://${IP_MACHINE}:3333/ads/${adsId}/discord`)
+    .then(response => {
+      // console.log(response.data)
+      setDiscordDuoSelected(response.data.discord)
+    })
+  }
+
   useEffect(() => {
     axios.get(`http://${IP_MACHINE}:3333/games/${game.id}/ads`)
     .then(response => {
-      // console.log(response.data)
       setDuos(response.data)
     })
   }, [])
@@ -78,7 +85,7 @@ export function Game() {
             renderItem={({ item }) => (
               <DuoCard
                 data={item}
-                onConnect={() => { setDiscordDuoSelected(item.name) }}
+                onConnect={() => { getDiscordUser(item.id) }}
               />
             )}
             style={styles.containerList}
@@ -92,7 +99,7 @@ export function Game() {
             )}
           />
 
-          <DuoMath
+          <DuoMatch
             visible={discordDuoSelected.length > 0}
             discord={discordDuoSelected}
             onClose={() => setDiscordDuoSelected('')}
